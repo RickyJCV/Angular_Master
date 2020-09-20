@@ -1,52 +1,61 @@
-<h1 class="subheader">Peliculas</h1>
-<h2>{{titulo}}</h2>
-<button (click)="cambiarTitulo()">Pulsame</button>
-<hr>
+<app-slider [nombre]="'Peliculas'"></app-slider>
 
-<h2>Mostrar primera pelicula</h2>
-{{peliculas[0].title}}
+<div class="center">
 
-<hr>
+  <section id="content">
+    <h1 class="subheader">Peliculas</h1>
+    <h2>{{titulo}}</h2>
+    <button (click)="cambiarTitulo()">Pulsame</button>
+    <hr>
 
-<h2>Numero de peliculas</h2>
+    <h2>Mostrar primera pelicula</h2>
+    {{peliculas[0].title}}
 
-<div *ngIf="peliculas.length <= 3">
-    Hay pocas peliculas
-</div>
+    <hr>
 
-<div *ngIf="peliculas.length > 3">
-    Hay muchas peliculas
-</div>
+    <h2>Numero de peliculas</h2>
 
-{{peliculas.length}}
+    <div *ngIf="peliculas.length <= 3">
+      Hay pocas peliculas
+    </div>
 
-<hr>
+    <div *ngIf="peliculas.length > 3">
+      Hay muchas peliculas
+    </div>
 
-<h2 class="subheader">Listado de peliculas</h2>
+    {{peliculas.length}}
 
-<div id="articles" *ngIf="peliculas">
-    <article class="article-item" *ngFor="let pelicula of peliculas; let i = index;">
+    <hr>
+
+    <h2 class="subheader">Listado de peliculas</h2>
+
+    <div id="articles" *ngIf="peliculas">
+      <article class="article-item" *ngFor="let pelicula of peliculas; let i = index;">
         <div class="image-wrap">
-            <img src="{{pelicula.image}}" alt="{{pelicula.title}}" />
+          <img src="{{pelicula.image}}" alt="{{pelicula.title}}" />
         </div>
 
         <h2>{{pelicula.title}}</h2>
         <span class="date">
-            Hace 5 minutos
+          Hace 5 minutos
         </span>
 
-        <span class="year"
-            [ngClass]="{
+        <span class="year" [ngClass]="{
                 'year-green': pelicula.year > 2016,
                 'year-red': pelicula.year > 2016
             }">
 
-            {{pelicula.year}}
-            
+          {{pelicula.year}}
+
         </span>
         <a href="#">Leer más</a>
 
         <div class="clearfix"></div>
-    </article>
+      </article>
 
+    </div>
+
+  </section>
+
+  <app-sidebar></app-sidebar>
 </div>
