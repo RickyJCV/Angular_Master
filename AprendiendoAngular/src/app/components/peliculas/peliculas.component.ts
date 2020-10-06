@@ -10,6 +10,7 @@ export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
 
   public titulo: string;
   public peliculas: Pelicula[];
+  public favorita: Pelicula;
 
   constructor() {
     this.titulo = "Componente peliculas"
@@ -40,6 +41,10 @@ export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
   //Antes de eliminar el componente se ejecuta esto
   ngOnDestroy() {
     console.log("el componente se va a eliminar")
+  }
+
+  mostrarFavorita(event) {
+    this.favorita = event.pelicula;
   }
 
 }
