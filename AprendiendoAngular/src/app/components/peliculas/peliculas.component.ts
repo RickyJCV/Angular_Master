@@ -11,6 +11,7 @@ export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
   public titulo: string;
   public peliculas: Pelicula[];
   public favorita: Pelicula;
+  public fecha: any;
 
   constructor() {
     this.titulo = "Componente peliculas"
@@ -22,6 +23,7 @@ export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
       new Pelicula("Spiderman", 2079, 'https://cronicaglobal.elespanol.com/uploads/s1/61/11/50/7/main-700b9bff30.jpeg'),
     ]
     console.log("constructor lanzado")
+    this.fecha = new Date(2020, 8, 12);
   }
 
   // ciclo de vida que se ejecuta al inicio
